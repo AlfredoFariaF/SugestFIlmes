@@ -1,0 +1,14 @@
+br\com\mvc\filter\AuthFilter.class
+br\com\mvc\controller\PerfilServlet.class
+br\com\mvc\model\Perfil.class
+br\com\mvc\dao\MysqlDAO.class
+br\com\mvc\controller\HomeServlet.class
+br\com\mvc\dao\UsuarioDAO.class
+br\com\mvc\service\PerfilService.class
+br\com\mvc\service\UsuarioService.class
+br\com\mvc\controller\LogoutServlet.class
+br\com\mvc\controller\LoginServlet.class
+br\com\mvc\dao\PerfilDAO.class
+br\com\mvc\config\MysqlSingleton.class
+br\com\mvc\model\Usuario.class
+br\com\mvc\controller\UsuarioServlet.class
