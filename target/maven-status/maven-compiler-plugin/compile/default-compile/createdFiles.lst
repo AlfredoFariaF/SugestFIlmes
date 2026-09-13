@@ -1,4 +1,5 @@
 br\com\mvc\filter\AuthFilter.class
+br\com\mvc\controller\BaseServlet.class
 br\com\mvc\controller\PerfilServlet.class
 br\com\mvc\model\Perfil.class
 br\com\mvc\dao\MysqlDAO.class

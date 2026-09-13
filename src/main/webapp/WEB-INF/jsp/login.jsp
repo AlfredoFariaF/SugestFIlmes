@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login - MVC Aula</title>
+    <title>Login - Sugest Filmes</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
 </head>
 <body>
 <div class="login-page">
     <div class="card login-card">
-        <h1>MVC Aula</h1>
+        <h1>Sugest Filmes</h1>
         <p>Entre com login e senha para acessar o sistema.</p>
 
         <c:if test="${not empty erro}">

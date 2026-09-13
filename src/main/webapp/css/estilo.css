@@ -4,8 +4,8 @@
     --text: #1f2937;
     --muted: #6b7280;
     --border: #d7dde5;
-    --primary: #1f4e79;
-    --primary-hover: #163a5a;
+    --primary: #d4a300;
+    --primary-hover: #a57e00;
     --danger: #b42318;
     --danger-bg: #fef3f2;
     --ok-bg: #ecfdf3;
@@ -37,6 +37,7 @@ a:hover {
 }
 
 .login-page {
+    background: black;
     min-height: 100vh;
     display: grid;
     place-items: center;

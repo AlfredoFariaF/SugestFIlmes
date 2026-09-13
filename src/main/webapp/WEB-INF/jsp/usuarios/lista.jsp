@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Usuarios - MVC Aula</title>
+    <title>Filmes - Sugest Filmes</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
 </head>
 <body>
 <header class="topbar">
     <div class="container">
-        <strong>MVC Aula</strong>
+        <strong>Sugest Filmes</strong>
         <nav>
             <a href="${pageContext.request.contextPath}/home">Home</a>
             <a href="${pageContext.request.contextPath}/usuarios">Usuarios</a>
@@ -34,7 +34,7 @@
     <div class="table-wrap">
         <c:choose>
             <c:when test="${empty usuarios}">
-                <p class="empty">Nenhum usuario cadastrado.</p>
+                <p class="empty">Nenhum filme cadastrado.</p>
             </c:when>
             <c:otherwise>
                 <table>
