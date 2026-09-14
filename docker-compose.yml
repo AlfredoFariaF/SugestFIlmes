@@ -10,6 +10,10 @@ services:
       MYSQL_USER: mvc_user
       MYSQL_PASSWORD: mvc123
 
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
     ports:
       - "3306:3306"
 
@@ -20,6 +24,9 @@ services:
   tomcat:
     image: tomcat:10.1-jdk21
     container_name: cinevault-tomcat
+
+    environment:
+      JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8"
 
     ports:
       - "8080:8080"
