@@ -13,27 +13,22 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/home", "/usuarios", "/usuarios/*", "/perfis", "/perfis/*"})
+@WebFilter(urlPatterns = {
+        "/home", "/filmes", "/categorias", "/avaliacoes", "/recomendacoes",
+        "/usuarios", "/usuarios/*", "/perfis", "/perfis/*"
+})
 public class AuthFilter implements Filter {
-
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         HttpSession session = req.getSession(false);
-
-        Usuario usuarioLogado = null;
-        if (session != null) {
-            usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
-        }
-
+        Usuario usuarioLogado = session == null ? null : (Usuario) session.getAttribute("usuarioLogado");
         if (usuarioLogado == null) {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
-
         chain.doFilter(request, response);
     }
 }

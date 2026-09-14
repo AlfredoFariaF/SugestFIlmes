@@ -2,11 +2,11 @@ services:
 
   mysql:
     image: mysql:8.4
-    container_name: mvc-java-mysql
+    container_name: cinevault-mysql
 
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: mvc_java
+      MYSQL_DATABASE: cinevault
       MYSQL_USER: mvc_user
       MYSQL_PASSWORD: mvc123
 
@@ -19,7 +19,7 @@ services:
 
   tomcat:
     image: tomcat:10.1-jdk21
-    container_name: mvc-java-tomcat
+    container_name: cinevault-tomcat
 
     ports:
       - "8080:8080"

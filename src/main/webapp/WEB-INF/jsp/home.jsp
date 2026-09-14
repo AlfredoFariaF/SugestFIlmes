@@ -3,71 +3,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home - Sugest Filmes</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CineVault</title><link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
 </head>
 <body>
-<header class="topbar">
-    <div class="container">
-        <strong>Sugest Filmes</strong>
-        <nav>
-            <a href="${pageContext.request.contextPath}/home">Home</a>
-            <a href="${pageContext.request.contextPath}/usuarios">Usuarios</a>
-            <a href="${pageContext.request.contextPath}/perfis">Perfis</a>
-            <a href="${pageContext.request.contextPath}/logout">Sair</a>
-        </nav>
-    </div>
-</header>
-
+<header class="topbar"><div class="container topbar-content">
+    <a class="logo" href="${pageContext.request.contextPath}/home">🎬 CineVault</a>
+    <nav class="nav">
+        <a class="active" href="${pageContext.request.contextPath}/home">Início</a>
+        <a href="${pageContext.request.contextPath}/filmes">Filmes</a>
+        <a href="${pageContext.request.contextPath}/categorias">Categorias</a>
+        <a href="${pageContext.request.contextPath}/recomendacoes">Recomendações</a>
+        <a href="${pageContext.request.contextPath}/avaliacoes?minhas=true">Minhas avaliações</a>
+    </nav>
+    <div class="user-nav"><span>${usuarioLogado.nome}</span><a href="${pageContext.request.contextPath}/logout">Sair</a></div>
+</div></header>
 <main class="container">
-    <div class="page-header">
-        <h1>Pagina principal</h1>
-    </div>
-
-    <div class="grid-cards">
-        <a class="menu-card" href="${pageContext.request.contextPath}/usuarios">
-            <strong>Usuarios</strong>
-            <span>Listar, cadastrar, editar e excluir usuarios.</span>
-        </a>
-        <a class="menu-card" href="${pageContext.request.contextPath}/perfis">
-            <strong>Perfis</strong>
-            <span>Listar, cadastrar, editar e excluir perfis.</span>
-        </a>
-        <a class="menu-card" href="${pageContext.request.contextPath}/perfis">
-            <strong>Perfis</strong>
-            <span>Listar, cadastrar, editar e excluir perfis.</span>
-        </a>
-        <a class="menu-card" href="${pageContext.request.contextPath}/perfis">
-            <strong>Perfis</strong>
-            <span>Listar, cadastrar, editar e excluir perfis.</span>
-        </a>
-        <a class="menu-card" href="${pageContext.request.contextPath}/perfis">
-            <strong>Perfis</strong>
-            <span>Listar, cadastrar, editar e excluir perfis.</span>
-        </a>
-        <a class="menu-card" href="${pageContext.request.contextPath}/perfis">
-            <strong>Perfis</strong>
-            <span>Listar, cadastrar, editar e excluir perfis.</span>
-        </a>
-        <a class="menu-card" href="${pageContext.request.contextPath}/perfis">
-            <strong>Perfis</strong>
-            <span>Listar, cadastrar, editar e excluir perfis.</span>
-        </a>
-        <a class="menu-card" href="${pageContext.request.contextPath}/perfis">
-            <strong>Perfis</strong>
-            <span>Listar, cadastrar, editar e excluir perfis.</span>
-        </a>
-        <a class="menu-card" href="${pageContext.request.contextPath}/perfis">
-            <strong>Perfis</strong>
-            <span>Listar, cadastrar, editar e excluir perfis.</span>
-        </a>
-        <a class="menu-card" href="${pageContext.request.contextPath}/perfis">
-            <strong>Perfis</strong>
-            <span>Listar, cadastrar, editar e excluir perfis.</span>
-        </a>
-    </div>
+    <section class="hero">
+        <div class="hero-copy">
+            <span class="eyebrow">SISTEMA DE RECOMENDAÇÃO</span>
+            <h1>Encontre seu próximo filme.</h1>
+            <p>Escolha as categorias que combinam com você e descubra sugestões do catálogo do CineVault.</p>
+            <a class="btn" href="#categorias">Escolher categorias</a>
+        </div>
+    </section>
+    <section id="categorias" class="section-block">
+        <div class="section-heading"><div><h2>Escolha suas categorias</h2><p>Você pode selecionar mais de uma categoria.</p></div></div>
+        <form method="get" action="${pageContext.request.contextPath}/recomendacoes">
+            <div class="category-grid">
+                <c:forEach var="categoria" items="${categorias}">
+                    <label class="category-option"><input type="checkbox" name="categoria" value="${categoria.id}"><span>${categoria.nome}</span></label>
+                </c:forEach>
+            </div>
+            <div class="center-actions"><button class="btn" type="submit">🎯 Sugerir filmes</button></div>
+        </form>
+    </section>
+    <section class="section-block">
+        <div class="section-heading"><div><h2>Filmes em destaque</h2><p>Os títulos mais bem avaliados do catálogo.</p></div><a href="${pageContext.request.contextPath}/filmes">Ver todos</a></div>
+        <div class="movie-grid">
+            <c:forEach var="filme" items="${filmes}">
+                <article class="movie-card">
+                    <div class="movie-poster"><span>🎬</span><span class="year-badge">${filme.ano}</span></div>
+                    <div class="movie-body"><h3>${filme.titulo}</h3><p class="movie-meta">${filme.genero} · ${filme.diretor}</p><div class="rating">⭐ <strong><c:choose><c:when test="${filme.totalAvaliacoes > 0}">${filme.mediaAvaliacao}</c:when><c:otherwise>Sem avaliações</c:otherwise></c:choose></strong></div><a class="btn btn-secondary btn-small" href="${pageContext.request.contextPath}/filmes?acao=detalhes&id=${filme.id}">Ver detalhes</a></div>
+                </article>
+            </c:forEach>
+        </div>
+    </section>
 </main>
+<footer class="footer"><div class="container">CineVault · Sistema MVC de recomendação de filmes</div></footer>
 </body>
 </html>
