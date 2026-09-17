@@ -8,7 +8,7 @@
 </head>
 <body>
 <header class="topbar"><div class="container topbar-content">
-    <a class="logo" href="${pageContext.request.contextPath}/home">🎬 CineVault</a>
+    <a class="logo" href="${pageContext.request.contextPath}/home"> CineVault</a>
     <nav class="nav">
         <a class="active" href="${pageContext.request.contextPath}/home">Início</a>
         <a href="${pageContext.request.contextPath}/filmes">Filmes</a>
@@ -35,7 +35,7 @@
                     <label class="category-option"><input type="checkbox" name="categoria" value="${categoria.id}"><span>${categoria.nome}</span></label>
                 </c:forEach>
             </div>
-            <div class="center-actions"><button class="btn" type="submit">🎯 Sugerir filmes</button></div>
+            <div class="center-actions"><button class="btn" type="submit">Sugerir filmes</button></div>
         </form>
     </section>
     <section class="section-block">
@@ -43,8 +43,8 @@
         <div class="movie-grid">
             <c:forEach var="filme" items="${filmes}">
                 <article class="movie-card">
-                    <div class="movie-poster"><span>🎬</span><span class="year-badge">${filme.ano}</span></div>
-                    <div class="movie-body"><h3>${filme.titulo}</h3><p class="movie-meta">${filme.genero} · ${filme.diretor}</p><div class="rating">⭐ <strong><c:choose><c:when test="${filme.totalAvaliacoes > 0}">${filme.mediaAvaliacao}</c:when><c:otherwise>Sem avaliações</c:otherwise></c:choose></strong></div><a class="btn btn-secondary btn-small" href="${pageContext.request.contextPath}/filmes?acao=detalhes&id=${filme.id}">Ver detalhes</a></div>
+                    <div class="movie-poster"><span></span><span class="year-badge">${filme.ano}</span></div>
+                    <div class="movie-body"><h3>${filme.titulo}</h3><p class="movie-meta">${filme.genero} · ${filme.diretor}</p><div class="rating">Nota: <strong><c:choose><c:when test="${filme.totalAvaliacoes > 0}">${filme.mediaAvaliacao}</c:when><c:otherwise>Sem avaliações</c:otherwise></c:choose></strong></div><a class="btn btn-secondary btn-small" href="${pageContext.request.contextPath}/filmes?acao=detalhes&id=${filme.id}">Ver detalhes</a></div>
                 </article>
             </c:forEach>
         </div>

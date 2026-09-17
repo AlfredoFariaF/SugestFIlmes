@@ -1,31 +1,31 @@
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\controller\HomeServlet.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\model\Filme.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\model\Perfil.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\dao\FilmeDAO.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\controller\PerfilServlet.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\filter\AuthFilter.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\service\CategoriaService.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\dao\MysqlDAO.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\model\Avaliacao.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\model\Categoria.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\controller\AvaliacaoServlet.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\dao\FilmeCategoriaDAO.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\dao\UsuarioDAO.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\controller\RecomendacaoServlet.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\controller\CategoriaServlet.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\controller\LogoutServlet.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\service\RecomendacaoService.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\controller\FilmeServlet.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\model\Usuario.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\config\MysqlSingleton.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\controller\LoginServlet.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\dao\AvaliacaoDAO.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\model\FilmeCategoria.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\service\PerfilService.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\controller\BaseServlet.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\controller\UsuarioServlet.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\dao\CategoriaDAO.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\service\UsuarioService.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\service\FilmeService.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\dao\PerfilDAO.java
-d:\alfre\Documents\Plataforma de sugestao de filmes\SugestFIlmes\src\main\java\br\com\mvc\service\AvaliacaoService.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\model\Filme.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\dao\AvaliacaoDAO.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\model\Categoria.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\config\MysqlSingleton.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\dao\PerfilDAO.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\service\PerfilService.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\controller\LoginServlet.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\model\Avaliacao.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\filter\AuthFilter.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\model\FilmeCategoria.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\controller\AvaliacaoServlet.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\dao\FilmeCategoriaDAO.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\controller\PerfilServlet.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\controller\FilmeServlet.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\controller\CategoriaServlet.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\service\FilmeService.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\controller\HomeServlet.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\model\Perfil.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\service\AvaliacaoService.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\controller\LogoutServlet.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\dao\MysqlDAO.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\model\Usuario.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\service\UsuarioService.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\dao\FilmeDAO.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\dao\UsuarioDAO.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\controller\BaseServlet.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\controller\UsuarioServlet.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\service\CategoriaService.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\controller\RecomendacaoServlet.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\dao\CategoriaDAO.java
+D:\Coding\Tec pra Internet\SugestFIlmes\src\main\java\br\com\mvc\service\RecomendacaoService.java

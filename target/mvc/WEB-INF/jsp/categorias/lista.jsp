@@ -1,4 +1,62 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %><%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Categorias - CineVault</title><link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css"></head><body>
-<header class="topbar"><div class="container topbar-content"><a class="logo" href="${pageContext.request.contextPath}/home">🎬 CineVault</a><nav class="nav"><a href="${pageContext.request.contextPath}/home">Início</a><a href="${pageContext.request.contextPath}/filmes">Filmes</a><a class="active" href="${pageContext.request.contextPath}/categorias">Categorias</a><a href="${pageContext.request.contextPath}/recomendacoes">Recomendações</a><a href="${pageContext.request.contextPath}/avaliacoes?minhas=true">Minhas avaliações</a></nav><a href="${pageContext.request.contextPath}/logout">Sair</a></div></header>
-<main class="container page-space"><div class="page-header"><div><h1>Categorias</h1><p>Gerencie as categorias usadas nas recomendações.</p></div><a class="btn" href="${pageContext.request.contextPath}/categorias?acao=novo">+ Nova categoria</a></div><c:if test="${not empty erro}"><div class="alert alert-erro">${erro}</div></c:if><div class="table-wrap"><table><thead><tr><th>ID</th><th>Categoria</th><th>Ações</th></tr></thead><tbody><c:forEach var="categoria" items="${categorias}"><tr><td>${categoria.id}</td><td><span class="chip">${categoria.nome}</span></td><td class="links"><a href="${pageContext.request.contextPath}/categorias?acao=editar&id=${categoria.id}">Editar</a><a href="${pageContext.request.contextPath}/categorias?acao=excluir&id=${categoria.id}" onclick="return confirm('Excluir esta categoria?');">Excluir</a></td></tr></c:forEach></tbody></table></div></main></body></html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Categorias - CineVault</title>
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
+        </head>
+
+        <body>
+            <header class="topbar">
+                <div class="container topbar-content"><a class="logo" href="${pageContext.request.contextPath}/home">
+                        CineVault</a>
+                    <nav class="nav"><a href="${pageContext.request.contextPath}/home">Início</a><a
+                            href="${pageContext.request.contextPath}/filmes">Filmes</a><a class="active"
+                            href="${pageContext.request.contextPath}/categorias">Categorias</a><a
+                            href="${pageContext.request.contextPath}/recomendacoes">Recomendações</a><a
+                            href="${pageContext.request.contextPath}/avaliacoes?minhas=true">Minhas avaliações</a></nav>
+                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                </div>
+            </header>
+            <main class="container page-space">
+                <div class="page-header">
+                    <div>
+                        <h1>Categorias</h1>
+                        <p>Gerencie as categorias usadas nas recomendações.</p>
+                    </div><a class="btn" href="${pageContext.request.contextPath}/categorias?acao=novo">+ Nova
+                        categoria</a>
+                </div>
+                <c:if test="${not empty erro}">
+                    <div class="alert alert-erro">${erro}</div>
+                </c:if>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Categoria</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="categoria" items="${categorias}">
+                                <tr>
+                                    <td>${categoria.id}</td>
+                                    <td><span class="chip">${categoria.nome}</span></td>
+                                    <td class="links"><a
+                                            href="${pageContext.request.contextPath}/categorias?acao=editar&id=${categoria.id}">Editar</a><a
+                                            href="${pageContext.request.contextPath}/categorias?acao=excluir&id=${categoria.id}"
+                                            onclick="return confirm('Excluir esta categoria?');">Excluir</a></td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </body>
+
+        </html>

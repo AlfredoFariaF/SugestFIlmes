@@ -11,7 +11,7 @@
 <body class="login-body">
 <div class="login-page">
     <div class="login-card card">
-        <div class="brand-center">🎬 CineVault</div>
+        <div class="brand-center"> CineVault</div>
         <h1>Bem-vindo</h1>
         <p>Entre para receber recomendações de filmes.</p>
         <c:if test="${not empty erro}"><div class="alert alert-erro">${erro}</div></c:if>
