@@ -1,6 +1,8 @@
 package br.com.mvc.controller;
 
+import br.com.mvc.model.Usuario;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,6 +15,29 @@ import java.io.IOException;
  * Regra de negocio fica no Service.
  */
 public abstract class BaseServlet extends HttpServlet {
+
+    protected boolean isAdmin(HttpServletRequest req) {
+        HttpSession session = req.getSession(false);
+        if (session == null) {
+            return false;
+        }
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+        if (usuario == null || usuario.getPerfil() == null) {
+            return false;
+        }
+        return "Administrador".equalsIgnoreCase(
+                usuario.getPerfil().getNome());
+    }
+
+    protected boolean exigirAdmin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        if (!isAdmin(req)) {
+            resp.sendError(
+                    HttpServletResponse.SC_FORBIDDEN,
+                    "Acesso permitido somente para administradores.");
+            return false;
+        }
+        return true;
+    }
 
     protected String acao(HttpServletRequest req) {
         String acao = req.getParameter("acao");

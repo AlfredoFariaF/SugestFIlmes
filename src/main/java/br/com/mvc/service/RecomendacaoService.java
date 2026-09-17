@@ -6,5 +6,8 @@ import java.util.List;
 
 public class RecomendacaoService {
     private final FilmeDAO filmeDAO = new FilmeDAO();
-    public List<Filme> recomendar(List<Long> categorias) { return filmeDAO.recomendarPorCategorias(categorias); }
+
+    public List<Filme> recomendar(List<Long> categorias) {
+        return filmeDAO.recomendarPorCategorias(categorias);
+    }
 }

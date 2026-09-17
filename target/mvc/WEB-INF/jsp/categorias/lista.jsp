@@ -47,10 +47,23 @@
                                 <tr>
                                     <td>${categoria.id}</td>
                                     <td><span class="chip">${categoria.nome}</span></td>
-                                    <td class="links"><a
-                                            href="${pageContext.request.contextPath}/categorias?acao=editar&id=${categoria.id}">Editar</a><a
-                                            href="${pageContext.request.contextPath}/categorias?acao=excluir&id=${categoria.id}"
-                                            onclick="return confirm('Excluir esta categoria?');">Excluir</a></td>
+                                    <td class="links">
+                                        <c:if test="${sessionScope.usuarioLogado.perfil.nome == 'Administrador'}">
+                                            <a
+                                                href="${pageContext.request.contextPath}/categorias?acao=editar&id=${categoria.id}">
+                                                Editar
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/categorias?acao=excluir&id=${categoria.id}"
+                                                onclick="return confirm('Excluir esta categoria?');">
+                                                Excluir
+                                            </a>
+                                        </c:if>
+                                        <c:if test="${sessionScope.usuarioLogado.perfil.nome != 'Administrador'}">
+                                            <span class="text-muted">
+                                                Somente consulta
+                                            </span>
+                                        </c:if>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </tbody>

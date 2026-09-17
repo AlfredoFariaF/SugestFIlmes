@@ -21,11 +21,10 @@ public class UsuarioDAO extends MysqlDAO {
     }
 
     public Usuario buscarPorLoginESenha(String login, String senha) {
-        String sql =
-                "SELECT u.id, u.nome, u.login, u.senha, u.perfil_id, p.nome AS perfil_nome "
-                        + "FROM usuarios u "
-                        + "INNER JOIN perfis p ON p.id = u.perfil_id "
-                        + "WHERE u.login = ? AND u.senha = ?";
+        String sql = "SELECT u.id, u.nome, u.login, u.senha, u.perfil_id, p.nome AS perfil_nome "
+                + "FROM usuarios u "
+                + "INNER JOIN perfis p ON p.id = u.perfil_id "
+                + "WHERE u.login = ? AND u.senha = ?";
         try (ResultSet rs = super.executar(sql, login, senha)) {
             if (rs.next()) {
                 return this.mapearComPerfil(rs);
@@ -37,11 +36,10 @@ public class UsuarioDAO extends MysqlDAO {
     }
 
     public List<Usuario> listarTodos() {
-        String sql =
-                "SELECT u.id, u.nome, u.login, u.senha, u.perfil_id, p.nome AS perfil_nome "
-                        + "FROM usuarios u "
-                        + "INNER JOIN perfis p ON p.id = u.perfil_id "
-                        + "ORDER BY u.nome";
+        String sql = "SELECT u.id, u.nome, u.login, u.senha, u.perfil_id, p.nome AS perfil_nome "
+                + "FROM usuarios u "
+                + "INNER JOIN perfis p ON p.id = u.perfil_id "
+                + "ORDER BY u.nome";
         List<Usuario> lista = new ArrayList<>();
         try (ResultSet rs = super.executar(sql)) {
             while (rs.next()) {
@@ -54,11 +52,10 @@ public class UsuarioDAO extends MysqlDAO {
     }
 
     public Usuario buscarPorId(Long id) {
-        String sql =
-                "SELECT u.id, u.nome, u.login, u.senha, u.perfil_id, p.nome AS perfil_nome "
-                        + "FROM usuarios u "
-                        + "INNER JOIN perfis p ON p.id = u.perfil_id "
-                        + "WHERE u.id = ?";
+        String sql = "SELECT u.id, u.nome, u.login, u.senha, u.perfil_id, p.nome AS perfil_nome "
+                + "FROM usuarios u "
+                + "INNER JOIN perfis p ON p.id = u.perfil_id "
+                + "WHERE u.id = ?";
         try (ResultSet rs = super.executar(sql, id)) {
             if (rs.next()) {
                 return this.mapearComPerfil(rs);
@@ -70,11 +67,10 @@ public class UsuarioDAO extends MysqlDAO {
     }
 
     public Usuario buscarPorLogin(String login) {
-        String sql =
-                "SELECT u.id, u.nome, u.login, u.senha, u.perfil_id, p.nome AS perfil_nome "
-                        + "FROM usuarios u "
-                        + "INNER JOIN perfis p ON p.id = u.perfil_id "
-                        + "WHERE u.login = ?";
+        String sql = "SELECT u.id, u.nome, u.login, u.senha, u.perfil_id, p.nome AS perfil_nome "
+                + "FROM usuarios u "
+                + "INNER JOIN perfis p ON p.id = u.perfil_id "
+                + "WHERE u.login = ?";
         try (ResultSet rs = super.executar(sql, login)) {
             if (rs.next()) {
                 return this.mapearComPerfil(rs);

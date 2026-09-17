@@ -27,7 +27,8 @@ public class FilmeDAO extends MysqlDAO {
         String sql = "SELECT f.*, COALESCE(AVG(a.nota),0) media_avaliacao, COUNT(a.id) total_avaliacoes " +
                 "FROM filmes f LEFT JOIN avaliacoes a ON a.filme_id = f.id WHERE f.id = ? GROUP BY f.id";
         List<Filme> lista = consultarFilmes(sql, id);
-        if (lista.isEmpty()) return null;
+        if (lista.isEmpty())
+            return null;
         Filme filme = lista.get(0);
         filme.setCategorias(buscarCategorias(id));
         return filme;
@@ -45,7 +46,8 @@ public class FilmeDAO extends MysqlDAO {
     public void inserir(Filme filme, List<Long> categorias) {
         String sql = "INSERT INTO filmes (titulo, descricao, genero, ano, diretor) VALUES (?, ?, ?, ?, ?)";
         try {
-            super.executarUpdate(sql, filme.getTitulo(), filme.getDescricao(), filme.getGenero(), filme.getAno(), filme.getDiretor());
+            super.executarUpdate(sql, filme.getTitulo(), filme.getDescricao(), filme.getGenero(), filme.getAno(),
+                    filme.getDiretor());
             Filme salvo = buscarUltimoPorTitulo(filme.getTitulo());
             substituirCategorias(salvo.getId(), categorias);
         } catch (SQLException e) {
@@ -56,7 +58,8 @@ public class FilmeDAO extends MysqlDAO {
     public void alterar(Filme filme, List<Long> categorias) {
         String sql = "UPDATE filmes SET titulo = ?, descricao = ?, genero = ?, ano = ?, diretor = ? WHERE id = ?";
         try {
-            super.executarUpdate(sql, filme.getTitulo(), filme.getDescricao(), filme.getGenero(), filme.getAno(), filme.getDiretor(), filme.getId());
+            super.executarUpdate(sql, filme.getTitulo(), filme.getDescricao(), filme.getGenero(), filme.getAno(),
+                    filme.getDiretor(), filme.getId());
             substituirCategorias(filme.getId(), categorias);
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao alterar filme.", e);
@@ -64,12 +67,16 @@ public class FilmeDAO extends MysqlDAO {
     }
 
     public void deletar(Long id) {
-        try { super.executarUpdate("DELETE FROM filmes WHERE id = ?", id); }
-        catch (SQLException e) { throw new RuntimeException("Erro ao excluir filme.", e); }
+        try {
+            super.executarUpdate("DELETE FROM filmes WHERE id = ?", id);
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao excluir filme.", e);
+        }
     }
 
     public List<Filme> recomendarPorCategorias(List<Long> categorias) {
-        if (categorias == null || categorias.isEmpty()) return List.of();
+        if (categorias == null || categorias.isEmpty())
+            return List.of();
         String placeholders = String.join(",", java.util.Collections.nCopies(categorias.size(), "?"));
         String sql = "SELECT f.*, COUNT(DISTINCT fc.categoria_id) correspondencias, " +
                 "COALESCE(AVG(a.nota),0) media_avaliacao, COUNT(DISTINCT a.id) total_avaliacoes " +
@@ -83,16 +90,22 @@ public class FilmeDAO extends MysqlDAO {
     private Filme buscarUltimoPorTitulo(String titulo) {
         String sql = "SELECT * FROM filmes WHERE titulo = ? ORDER BY id DESC LIMIT 1";
         try (ResultSet rs = super.executar(sql, titulo)) {
-            if (rs.next()) return mapear(rs);
+            if (rs.next())
+                return mapear(rs);
             return null;
-        } catch (SQLException e) { throw new RuntimeException("Erro ao buscar filme inserido.", e); }
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao buscar filme inserido.", e);
+        }
     }
 
     private List<Filme> consultarFilmes(String sql, Object... parametros) {
         List<Filme> lista = new ArrayList<>();
         try (ResultSet rs = super.executar(sql, parametros)) {
-            while (rs.next()) lista.add(mapear(rs));
-        } catch (SQLException e) { throw new RuntimeException("Erro ao consultar filmes.", e); }
+            while (rs.next())
+                lista.add(mapear(rs));
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao consultar filmes.", e);
+        }
         return lista;
     }
 
@@ -104,9 +117,18 @@ public class FilmeDAO extends MysqlDAO {
         f.setGenero(rs.getString("genero"));
         f.setAno(rs.getInt("ano"));
         f.setDiretor(rs.getString("diretor"));
-        try { f.setMediaAvaliacao(rs.getDouble("media_avaliacao")); } catch (SQLException ignored) {}
-        try { f.setTotalAvaliacoes(rs.getInt("total_avaliacoes")); } catch (SQLException ignored) {}
-        try { f.setCorrespondencias(rs.getInt("correspondencias")); } catch (SQLException ignored) {}
+        try {
+            f.setMediaAvaliacao(rs.getDouble("media_avaliacao"));
+        } catch (SQLException ignored) {
+        }
+        try {
+            f.setTotalAvaliacoes(rs.getInt("total_avaliacoes"));
+        } catch (SQLException ignored) {
+        }
+        try {
+            f.setCorrespondencias(rs.getInt("correspondencias"));
+        } catch (SQLException ignored) {
+        }
         return f;
     }
 
@@ -115,15 +137,23 @@ public class FilmeDAO extends MysqlDAO {
         List<Categoria> lista = new ArrayList<>();
         try (ResultSet rs = super.executar(sql, filmeId)) {
             while (rs.next()) {
-                Categoria c = new Categoria(); c.setId(rs.getLong("id")); c.setNome(rs.getString("nome")); lista.add(c);
+                Categoria c = new Categoria();
+                c.setId(rs.getLong("id"));
+                c.setNome(rs.getString("nome"));
+                lista.add(c);
             }
-        } catch (SQLException e) { throw new RuntimeException("Erro ao buscar categorias do filme.", e); }
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao buscar categorias do filme.", e);
+        }
         return lista;
     }
 
     private void substituirCategorias(Long filmeId, List<Long> categorias) throws SQLException {
         super.executarUpdate("DELETE FROM filmes_categorias WHERE filme_id = ?", filmeId);
-        if (categorias == null) return;
-        for (Long categoriaId : categorias) super.executarUpdate("INSERT INTO filmes_categorias (filme_id, categoria_id) VALUES (?, ?)", filmeId, categoriaId);
+        if (categorias == null)
+            return;
+        for (Long categoriaId : categorias)
+            super.executarUpdate("INSERT INTO filmes_categorias (filme_id, categoria_id) VALUES (?, ?)", filmeId,
+                    categoriaId);
     }
 }

@@ -1,4 +1,4 @@
-# SugestFIlmes
+# SugestFilmes
 
 Sistema web de recomendação de filmes desenvolvido em Java MVC com JSP, MySQL e Tomcat, utilizando Maven para build e Docker para subir o ambiente.
 
@@ -367,11 +367,3 @@ Os principais conceitos aplicados ao sistema são:
 ## 12. Conclusão
 
 Este projeto demonstra uma aplicação web Java com arquitetura MVC, persistência em MySQL, autenticação, recomendação por categorias e avaliação de filmes. Ele é um bom exemplo de projeto acadêmico de desenvolvimento web com foco em organização, separação de responsabilidades e regras de negócio.
-
-## 13. Observações finais
-
-- O projeto está funcional.
-- A base da arquitetura está correta.
-- O entendimento dos conceitos de MVC e POO é essencial para responder perguntas do professor.
-- O arquivo `README.md` pode ser usado como material de suporte para explicação oral e entrega do trabalho.
-

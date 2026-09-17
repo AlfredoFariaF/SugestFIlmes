@@ -57,8 +57,8 @@ public class UsuarioService {
 
     /**
      * Regra de salvamento:
-     * - sem id  -> cadastro novo
-     * - com id  -> alteracao (usuario precisa existir)
+     * - sem id -> cadastro novo
+     * - com id -> alteracao (usuario precisa existir)
      */
     public void salvar(Usuario usuario) {
         if (usuario == null) {

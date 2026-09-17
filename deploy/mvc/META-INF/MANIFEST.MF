@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
 Created-By: Apache Maven 3.9.16
-Built-By: YanLucca
-Build-Jdk: 21.0.2
+Built-By: alfre
+Build-Jdk: 23.0.2
 
