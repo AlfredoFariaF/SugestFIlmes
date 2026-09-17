@@ -8,12 +8,8 @@ import java.sql.SQLException;
 
 public class MysqlSingleton {
 
-    private static final String HOST =
-            System.getProperty("DB_HOST",
-                    System.getenv().getOrDefault("DB_HOST", "localhost"));
-
     private static final String URL =
-            "jdbc:mysql://" + HOST + ":3306/cinevault"
+            "jdbc:mysql://mysql:3306/cinevault"
             + "?useUnicode=true"
             + "&characterEncoding=UTF-8"
             + "&serverTimezone=America/Sao_Paulo"
