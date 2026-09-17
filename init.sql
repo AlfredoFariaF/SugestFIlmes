@@ -2,11 +2,11 @@
 -- BANCO DE DADOS
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS cinevault
+CREATE DATABASE IF NOT EXISTS sugestfilmes
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
 
-USE cinevault;
+USE sugestfilmes;
 
 SET NAMES utf8mb4;
 

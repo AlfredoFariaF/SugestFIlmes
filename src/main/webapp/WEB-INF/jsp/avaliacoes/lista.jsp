@@ -6,7 +6,7 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Avaliações - CineVault</title>
+            <title>Avaliações - SugestFilmes</title>
             <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
         </head>
 
@@ -14,7 +14,7 @@
 
             <header class="topbar">
                 <div class="container topbar-content">
-                    <a class="logo" href="${pageContext.request.contextPath}/home"> CineVault</a>
+                    <a class="logo" href="${pageContext.request.contextPath}/home"> SugestFilmes</a>
                     <nav class="nav">
                         <a href="${pageContext.request.contextPath}/home">Início</a>
                         <a href="${pageContext.request.contextPath}/filmes">Filmes</a>

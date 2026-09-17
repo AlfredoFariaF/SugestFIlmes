@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class MysqlSingleton {
 
     private static final String URL =
-            "jdbc:mysql://mysql:3306/cinevault"
+            "jdbc:mysql://mysql:3306/sugestfilmes"
             + "?useUnicode=true"
             + "&characterEncoding=UTF-8"
             + "&serverTimezone=America/Sao_Paulo"

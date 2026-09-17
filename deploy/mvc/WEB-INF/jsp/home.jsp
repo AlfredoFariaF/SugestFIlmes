@@ -4,11 +4,11 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CineVault</title><link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
+    <title>SugestFilmes</title><link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
 </head>
 <body>
 <header class="topbar"><div class="container topbar-content">
-    <a class="logo" href="${pageContext.request.contextPath}/home"> CineVault</a>
+    <a class="logo" href="${pageContext.request.contextPath}/home"> SugestFilmes</a>
     <nav class="nav">
         <a class="active" href="${pageContext.request.contextPath}/home">Início</a>
         <a href="${pageContext.request.contextPath}/filmes">Filmes</a>
@@ -23,7 +23,7 @@
         <div class="hero-copy">
             <span class="eyebrow">SISTEMA DE RECOMENDAÇÃO</span>
             <h1>Encontre seu próximo filme.</h1>
-            <p>Escolha as categorias que combinam com você e descubra sugestões do catálogo do CineVault.</p>
+            <p>Escolha as categorias que combinam com você e descubra sugestões do catálogo do SugestFilmes.</p>
             <a class="btn" href="#categorias">Escolher categorias</a>
         </div>
     </section>
@@ -50,6 +50,6 @@
         </div>
     </section>
 </main>
-<footer class="footer"><div class="container">CineVault · Sistema MVC de recomendação de filmes</div></footer>
+<footer class="footer"><div class="container">SugestFilmes · Sistema MVC de recomendação de filmes</div></footer>
 </body>
 </html>

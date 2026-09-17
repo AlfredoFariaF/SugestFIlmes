@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Entrar - CineVault</title>
+    <title>Entrar - SugestFilmes</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
 </head>
 <body class="login-body">
 <div class="login-page">
     <div class="login-card card">
-        <div class="brand-center"> CineVault</div>
+        <div class="brand-center">SugestFilmes</div>
         <h1>Bem-vindo</h1>
         <p>Entre para receber recomendações de filmes.</p>
         <c:if test="${not empty erro}"><div class="alert alert-erro">${erro}</div></c:if>

@@ -6,14 +6,14 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Categorias - CineVault</title>
+            <title>Categorias - SugestFilmes</title>
             <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
         </head>
 
         <body>
             <header class="topbar">
                 <div class="container topbar-content"><a class="logo" href="${pageContext.request.contextPath}/home">
-                        CineVault</a>
+                        SugestFilmes</a>
                     <nav class="nav"><a href="${pageContext.request.contextPath}/home">Início</a><a
                             href="${pageContext.request.contextPath}/filmes">Filmes</a><a class="active"
                             href="${pageContext.request.contextPath}/categorias">Categorias</a><a

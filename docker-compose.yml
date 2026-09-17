@@ -2,11 +2,11 @@ services:
 
   mysql:
     image: mysql:8.4
-    container_name: cinevault-mysql
+    container_name: sugestfilmes-mysql
 
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: cinevault
+      MYSQL_DATABASE: sugestfilmes
       MYSQL_USER: mvc_user
       MYSQL_PASSWORD: mvc123
 
@@ -23,7 +23,7 @@ services:
 
   tomcat:
     image: tomcat:10.1-jdk21
-    container_name: cinevault-tomcat
+    container_name: sugestfilmes-tomcat
 
     environment:
       JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8"
