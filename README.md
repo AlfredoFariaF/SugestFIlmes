@@ -323,24 +323,52 @@ mvn clean package
 http://localhost:8080/mvc/login
 ```
 
-## 10. Dicas para apresentação e explicação oral
+## 10. Testes automatizados
 
-Se o professor fizer perguntas, o ideal é responder assim:
+Este projeto inclui testes de comportamento em JUnit para validar regras de negócio importantes do sistema.
 
-- "O MVC organiza a aplicação em Model, View e Controller."
-- "O DAO é quem acessa o banco de dados."
-- "O Service contém a regra de negócio."
-- "O Maven gerencia dependências e build."
-- "O Tomcat executa a aplicação web."
-- "O JSP renderiza a interface HTML."
-- "O filter implementa autenticação de rotas protegidas."
-- "A POO permite criar objetos como Usuário e Filme para representar dados do domínio."
+Os testes cobrem:
 
-## 11. Conclusão
+- autenticação com usuário válido;
+- autenticação com senha inválida;
+- senha curta rejeitada;
+- recomendação por categorias;
+- avaliação com nota inválida.
+
+Arquivo de teste:
+
+```text
+src/test/java/br/com/mvc/service/RegraDeNegocioTest.java
+```
+
+Como executar:
+
+```bash
+cd SugestFIlmes
+mvn test -q -DDB_HOST=localhost
+```
+
+Importante: o parâmetro `-DDB_HOST=localhost` é usado para que o Maven conecte ao MySQL local do Docker durante a execução dos testes.
+
+## 11. Fundamentos conceituais do projeto
+
+Os principais conceitos aplicados ao sistema são:
+
+- MVC: a aplicação é dividida em Model, View e Controller, separando dados, interface e fluxo de controle.
+- DAO: a camada de acesso a dados é responsável por consultas e manipulação das tabelas do banco.
+- Service: a camada de regras de negócio valida operações como autenticação, cadastro e avaliação.
+- Maven: gerencia dependências e empacotamento da aplicação Java.
+- Tomcat: servidor web que executa a aplicação Java na web.
+- JSP: página dinâmica responsável por renderizar a interface visual do sistema.
+- Filtragem de autenticação: o filtro impede acesso a páginas protegidas sem login válido.
+- POO: os objetos do domínio representam entidades do sistema, como usuários, filmes, categorias e avaliações.
+- JUnit: permite validar o comportamento real das regras do sistema por meio de testes automatizados.
+
+## 12. Conclusão
 
 Este projeto demonstra uma aplicação web Java com arquitetura MVC, persistência em MySQL, autenticação, recomendação por categorias e avaliação de filmes. Ele é um bom exemplo de projeto acadêmico de desenvolvimento web com foco em organização, separação de responsabilidades e regras de negócio.
 
-## 12. Observações finais
+## 13. Observações finais
 
 - O projeto está funcional.
 - A base da arquitetura está correta.
