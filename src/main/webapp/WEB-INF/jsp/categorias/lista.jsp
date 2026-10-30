@@ -6,33 +6,51 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Categorias - SugestFilmes</title>
+            <title>Categorias - CineVault</title>
             <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
         </head>
 
         <body>
             <header class="topbar">
-                <div class="container topbar-content"><a class="logo" href="${pageContext.request.contextPath}/home">
-                        SugestFilmes</a>
-                    <nav class="nav"><a href="${pageContext.request.contextPath}/home">Início</a><a
-                            href="${pageContext.request.contextPath}/filmes">Filmes</a><a class="active"
-                            href="${pageContext.request.contextPath}/categorias">Categorias</a><a
-                            href="${pageContext.request.contextPath}/recomendacoes">Recomendações</a><a
-                            href="${pageContext.request.contextPath}/avaliacoes?minhas=true">Minhas avaliações</a></nav>
-                    <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                <div class="container topbar-content">
+                    <a class="logo" href="${pageContext.request.contextPath}/home">🎬 CineVault</a>
+                    <nav class="nav">
+                        <a href="${pageContext.request.contextPath}/home">Início</a>
+                        <a href="${pageContext.request.contextPath}/filmes">Filmes</a>
+                        <a class="active" href="${pageContext.request.contextPath}/categorias">Categorias</a>
+                        <a href="${pageContext.request.contextPath}/recomendacoes">Recomendações</a>
+                        <a href="${pageContext.request.contextPath}/avaliacoes?minhas=true">Minhas avaliações</a>
+                    </nav>
+                    <div class="user-nav">
+                        <span>${sessionScope.usuarioLogado.nome}</span>
+                        <a href="${pageContext.request.contextPath}/logout">Sair</a>
+                    </div>
                 </div>
             </header>
+
             <main class="container page-space">
                 <div class="page-header">
                     <div>
                         <h1>Categorias</h1>
-                        <p>Gerencie as categorias usadas nas recomendações.</p>
-                    </div><a class="btn" href="${pageContext.request.contextPath}/categorias?acao=novo">+ Nova
-                        categoria</a>
+                        <c:choose>
+                            <c:when test="${sessionScope.usuarioLogado.perfilId eq 1}">
+                                <p>Gerencie as categorias utilizadas nas recomendações.</p>
+                            </c:when>
+                            <c:otherwise>
+                                <p>Consulte as categorias disponíveis para as recomendações.</p>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+                    <c:if test="${sessionScope.usuarioLogado.perfilId eq 1}">
+                        <a class="btn" href="${pageContext.request.contextPath}/categorias?acao=novo">+ Nova
+                            categoria</a>
+                    </c:if>
                 </div>
+
                 <c:if test="${not empty erro}">
                     <div class="alert alert-erro">${erro}</div>
                 </c:if>
+
                 <div class="table-wrap">
                     <table>
                         <thead>
@@ -48,21 +66,23 @@
                                     <td>${categoria.id}</td>
                                     <td><span class="chip">${categoria.nome}</span></td>
                                     <td class="links">
-                                        <c:if test="${sessionScope.usuarioLogado.perfil.nome == 'Administrador'}">
-                                            <a
-                                                href="${pageContext.request.contextPath}/categorias?acao=editar&id=${categoria.id}">
-                                                Editar
-                                            </a>
-                                            <a href="${pageContext.request.contextPath}/categorias?acao=excluir&id=${categoria.id}"
-                                                onclick="return confirm('Excluir esta categoria?');">
-                                                Excluir
-                                            </a>
-                                        </c:if>
-                                        <c:if test="${sessionScope.usuarioLogado.perfil.nome != 'Administrador'}">
-                                            <span class="text-muted">
-                                                Somente consulta
-                                            </span>
-                                        </c:if>
+                                        <c:choose>
+                                            <c:when test="${sessionScope.usuarioLogado.perfilId eq 1}">
+                                                <a
+                                                    href="${pageContext.request.contextPath}/categorias?acao=editar&id=${categoria.id}">Editar</a>
+                                                <form method="post"
+                                                    action="${pageContext.request.contextPath}/categorias"
+                                                    onsubmit="return confirm('Tem certeza de que deseja excluir esta categoria? Os vínculos com filmes também serão removidos.');">
+                                                    <input type="hidden" name="acao" value="excluir">
+                                                    <input type="hidden" name="id" value="${categoria.id}">
+                                                    <button class="link-button danger-link"
+                                                        type="submit">Excluir</button>
+                                                </form>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span class="text-muted">Somente consulta</span>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </td>
                                 </tr>
                             </c:forEach>

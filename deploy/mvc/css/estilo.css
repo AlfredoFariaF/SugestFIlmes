@@ -207,7 +207,7 @@ a:hover {
 
 .center-actions {
     justify-content: center;
-    margin-top: 12px;
+    margin-top: 22px;
 }
 
 .alert {
@@ -624,6 +624,18 @@ tr:last-child td {
     color: var(--muted);
 }
 
+.review-actions {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.review-actions form {
+    margin: 0;
+}
+
 .stars {
     color: #f8d26a;
     font-weight: 800;
@@ -699,40 +711,26 @@ tr:last-child td {
     }
 }
 
-/* Ações das avaliações */
-.review-actions {
-    margin-top: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+
+/* Ações administrativas em tabelas */
+.link-button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #c4b5fd;
+  font: inherit;
+  cursor: pointer;
 }
 
-.review-actions form {
-    margin: 0;
+.link-button:hover {
+  text-decoration: underline;
 }
 
-.btn-small {
-    padding: 8px 13px;
+.danger-link {
+  color: #ff8b82;
+}
+
+.text-muted {
+    color: var(--muted);
     font-size: .88rem;
-}
-
-.btn-danger {
-    background: #b42318;
-    color: #fff;
-    border: none;
-}
-
-.btn-danger:hover {
-    background: #8f1c13;
-}
-
-.review-edit-card {
-    margin-bottom: 24px;
-}
-
-.actions-row {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-top: 16px;
 }

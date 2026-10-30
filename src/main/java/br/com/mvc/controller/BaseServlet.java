@@ -1,43 +1,19 @@
 package br.com.mvc.controller;
 
+import br.com.mvc.model.Perfil;
 import br.com.mvc.model.Usuario;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
 /**
- * Base dos controllers.
- * So helpers de rota/view: ler parametro, encaminhar JSP e redirecionar.
- * Regra de negocio fica no Service.
+ * Classe base dos controllers.
+ * Centraliza helpers de rota, view, sessão e autorização.
  */
 public abstract class BaseServlet extends HttpServlet {
-
-    protected boolean isAdmin(HttpServletRequest req) {
-        HttpSession session = req.getSession(false);
-        if (session == null) {
-            return false;
-        }
-        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-        if (usuario == null || usuario.getPerfil() == null) {
-            return false;
-        }
-        return "Administrador".equalsIgnoreCase(
-                usuario.getPerfil().getNome());
-    }
-
-    protected boolean exigirAdmin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        if (!isAdmin(req)) {
-            resp.sendError(
-                    HttpServletResponse.SC_FORBIDDEN,
-                    "Acesso permitido somente para administradores.");
-            return false;
-        }
-        return true;
-    }
 
     protected String acao(HttpServletRequest req) {
         String acao = req.getParameter("acao");
@@ -63,8 +39,51 @@ public abstract class BaseServlet extends HttpServlet {
         }
     }
 
+    /** Retorna o usuário autenticado na sessão, ou null se não houver sessão. */
+    protected Usuario obterUsuarioLogado(HttpServletRequest req) {
+        HttpSession session = req.getSession(false);
+        if (session == null) {
+            return null;
+        }
+
+        Object usuario = session.getAttribute("usuarioLogado");
+        return usuario instanceof Usuario ? (Usuario) usuario : null;
+    }
+
+    /**
+     * Verifica o perfil carregado durante a autenticação.
+     * O nome do perfil é obtido do relacionamento usuarios -> perfis.
+     */
+    protected boolean isAdmin(HttpServletRequest req) {
+        Usuario usuario = obterUsuarioLogado(req);
+        if (usuario == null) {
+            return false;
+        }
+
+        Perfil perfil = usuario.getPerfil();
+        return perfil != null
+                && perfil.getNome() != null
+                && "Administrador".equalsIgnoreCase(perfil.getNome().trim());
+    }
+
+    /**
+     * Interrompe a requisição com HTTP 403 quando o usuário não é administrador.
+     * Deve ser chamado antes de qualquer operação de cadastro, edição ou exclusão.
+     */
+    protected boolean exigirAdmin(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
+        if (isAdmin(req)) {
+            return true;
+        }
+
+        resp.sendError(
+                HttpServletResponse.SC_FORBIDDEN,
+                "Acesso permitido somente para administradores.");
+        return false;
+    }
+
     protected void forward(HttpServletRequest req, HttpServletResponse resp, String jsp)
-            throws ServletException, IOException {
+            throws jakarta.servlet.ServletException, IOException {
         req.getRequestDispatcher(jsp).forward(req, resp);
     }
 
