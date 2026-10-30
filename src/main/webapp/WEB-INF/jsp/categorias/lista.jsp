@@ -72,7 +72,7 @@
                                                     href="${pageContext.request.contextPath}/categorias?acao=editar&id=${categoria.id}">Editar</a>
                                                 <form method="post"
                                                     action="${pageContext.request.contextPath}/categorias"
-                                                    onsubmit="return confirm('Tem certeza de que deseja excluir esta categoria? Os vínculos com filmes também serão removidos.');">
+                                                    onsubmit="return confirm('Tem certeza de que deseja excluir esta categoria? Categorias vinculadas a filmes não podem ser excluídas.');">
                                                     <input type="hidden" name="acao" value="excluir">
                                                     <input type="hidden" name="id" value="${categoria.id}">
                                                     <button class="link-button danger-link"

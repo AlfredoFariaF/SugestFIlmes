@@ -87,10 +87,17 @@ public class CategoriaServlet extends BaseServlet {
         try {
             service.deletar(paramLong(req, "id"));
             redirect(req, resp, "/categorias");
+        } catch (IllegalArgumentException e) {
+            // Regra de negócio: a categoria não pode ser excluída se estiver em uso.
+            req.setAttribute("erro", e.getMessage());
+            req.setAttribute("categorias", service.listar());
+            req.setAttribute("ehAdmin", isAdmin(req));
+            forward(req, resp, LISTA);
         } catch (RuntimeException e) {
+            getServletContext().log("Erro inesperado ao excluir categoria.", e);
             req.setAttribute(
                     "erro",
-                    "Não foi possível excluir a categoria. Verifique se ela está vinculada a filmes.");
+                    "Não foi possível excluir a categoria devido a um erro no banco de dados.");
             req.setAttribute("categorias", service.listar());
             req.setAttribute("ehAdmin", isAdmin(req));
             forward(req, resp, LISTA);
